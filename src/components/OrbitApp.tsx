@@ -104,8 +104,8 @@ function OrbitHero({
         </h1>
         <p className="hero-lead">
           Trigonometria como campanha principal. Polinômios como side quest
-          diária de vinte minutos. Você avança leve, mas chega no semestre com
-          duas armas carregadas.
+          diária de vinte a trinta minutos. Você avança leve, mas chega no
+          semestre com duas armas carregadas.
         </p>
         <div className="hero-actions">
           <button className="primary-action" onClick={onContinueTrig}>
@@ -338,8 +338,9 @@ function DailyPlan({
           <h2 id="daily-title">Leve para começar. Substancial ao terminar.</h2>
         </div>
         <p>
-          O combo normal cabe em 75–100 minutos. Em dia quebrado, faça a side
-          quest de Polinômios e preserve o movimento.
+          O combo cabe em 75–100 minutos na maioria dos dias. Nos quatro finais,
+          divida os 105–125 minutos em dois rounds. Em dia quebrado, faça só a
+          Forja e preserve o movimento.
         </p>
       </div>
       <div className="effort-modes">
@@ -349,9 +350,9 @@ function DailyPlan({
           <p>Faça apenas a Forja. Quatro questões e a corrente não quebra.</p>
         </article>
         <article className="recommended-mode">
-          <span>75–100 min</span>
+          <span>75–100 min*</span>
           <h3>Combo completo</h3>
-          <p>Trigonometria principal + side quest polinomial do mesmo dia.</p>
+          <p>Trigonometria + Forja; nos quatro finais, use dois rounds.</p>
         </article>
         <article>
           <span>+10 min</span>

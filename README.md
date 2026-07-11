@@ -6,7 +6,7 @@ Uma campanha dupla de 14 dias para chegar ao segundo semestre com Trigonometria 
 
 - **Órbita Trigonométrica:** 14 missões principais de 55–90 minutos e 112 questões.
 - **Forja Polinomial:** 14 side quests de 20–35 minutos e 56 questões.
-- **Combo diário normal:** aproximadamente 75–100 minutos.
+- **Combo diário normal:** 75–100 minutos na maioria dos dias; nos quatro finais, 105–125 minutos divididos em dois rounds.
 - **Modo sobrevivência:** somente a side quest, para manter o movimento em dias ruins.
 - **Modo Boss:** combo completo mais dois erros capturados.
 
@@ -50,4 +50,3 @@ npx wrangler pages deploy dist --project-name trigonometria-orbita-14
 ```
 
 Os PDFs do FME são referências privadas do estudo e não devem ser adicionados ao repositório.
-
