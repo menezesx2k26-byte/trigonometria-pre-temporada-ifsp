@@ -31,6 +31,6 @@ npm run build
 - Output directory: `dist`
 - Node.js: 22 ou superior
 
-O `wrangler.jsonc` está pronto para `npx wrangler pages deploy dist --project-name trigonometria-pre-temporada-ifsp` após autenticação.
+O `wrangler.jsonc` está pronto para `npx wrangler pages deploy dist --project-name trigonometria-orbita-14` após autenticação.
 
 Os PDFs dos FME não pertencem ao repositório e são bloqueados pelo `.gitignore`.

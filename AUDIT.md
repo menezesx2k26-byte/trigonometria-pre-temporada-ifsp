@@ -64,6 +64,6 @@ O projeto está configurado para Cloudflare Pages em `wrangler.jsonc`:
 
 - comando de build: `npm run build`;
 - diretório de saída: `dist`;
-- nome pretendido: `trigonometria-pre-temporada-ifsp`.
+- nome de publicação: `trigonometria-orbita-14`.
 
 O deploy não foi executado porque a sessão não recebeu autenticação da conta Cloudflare.
