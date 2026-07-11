@@ -75,7 +75,7 @@ function match(
   };
 }
 
-export const missions: Mission[] = [
+const baseMissions: Omit<Mission, "campaign">[] = [
   {
     day: 1,
     slug: "angulos-sem-neblina",
@@ -548,7 +548,7 @@ export const missions: Mission[] = [
         "Qual afirmação é correta?",
         ["sen 0°=1", "cos 0°=0", "sen 90°=1", "cos 90°=1"],
         2,
-        "No topo do ciclo, a coordenada vertical é 1: sen 90°=1.",
+        "Na escada notável do seno, o valor correspondente a 90° é 1.",
         "Trocar os eixos.",
       ),
       choice(
@@ -671,7 +671,7 @@ export const missions: Mission[] = [
       ),
       choice(
         "d5q8",
-        "O arco -90° termina:",
+        "Na posição padrão, o arco −90° termina:",
         [
           "no eixo x positivo",
           "no eixo y positivo",
@@ -699,7 +699,7 @@ export const missions: Mission[] = [
       label: "T–S–T–C",
       chant: "Primeiro todos. Segundo seno. Terceiro tangente. Quarto cosseno.",
       meaning:
-        "A função citada é positiva no quadrante; as demais são negativas. No primeiro, todas são positivas.",
+        "Entre seno, cosseno e tangente, somente a função citada é positiva; no primeiro quadrante, as três são positivas.",
     },
     visual: "circle",
     blocks: [
@@ -764,7 +764,7 @@ export const missions: Mission[] = [
       ),
       match(
         "d6q5",
-        "Associe cada quadrante ao que fica positivo.",
+        "Entre seno, cosseno e tangente, associe cada quadrante ao que fica positivo.",
         [
           ["QI", "todas"],
           ["QII", "seno"],
@@ -895,11 +895,11 @@ export const missions: Mission[] = [
         [
           "cos θ deve ser diferente de zero",
           "sen θ deve ser positivo",
-          "o domínio precisa permitir θ",
+          "o sinal da razão depende dos sinais de seno e cosseno",
           "θ precisa estar no QI",
         ],
         [0, 2],
-        "A divisão exige denominador não nulo e θ dentro do domínio; o sinal/quadrante podem variar.",
+        "A divisão exige cosseno não nulo; o sinal da tangente vem do quociente entre os sinais de seno e cosseno.",
         "Criar restrições de sinal que não existem.",
       ),
       choice(
@@ -1186,9 +1186,10 @@ export const missions: Mission[] = [
         body: "Em a·sen(bx), |a| controla amplitude e |b| comprime o período para 2π/|b|.",
       },
       {
-        eyebrow: "Simetria",
-        title: "Par ou ímpar",
-        body: "cos(-x)=cos x; sen(-x)=-sen x; tg(-x)=-tg x.",
+        eyebrow: "Posição e reflexão",
+        title: "O sinal vira; h e k deslocam",
+        body: "Um sinal negativo fora da função reflete o gráfico verticalmente. Em f(b(x−h))+k, h desloca na horizontal e k na vertical; além disso, cosseno é par, enquanto seno e tangente são ímpares.",
+        formula: "f(b(x−h))+k → h horizontal · k vertical",
       },
     ],
     example: {
@@ -1568,12 +1569,12 @@ export const missions: Mission[] = [
       {
         eyebrow: "Seno",
         title: "Repete ou suplementa",
-        body: "sen x=sen a gera x=a+2kπ ou x=π-a+2kπ.",
+        body: "sen x=sen a gera x=a+2kπ ou x=π−a+2kπ, com k∈ℤ.",
       },
       {
         eyebrow: "Cosseno e tangente",
         title: "Espelho e período",
-        body: "cos x=cos a gera x=±a+2kπ; tg x=tg a gera x=a+kπ.",
+        body: "cos x=cos a gera x=±a+2kπ; tg x=tg a gera x=a+kπ, sempre com k∈ℤ.",
       },
       {
         eyebrow: "Inequações",
@@ -1789,6 +1790,11 @@ export const missions: Mission[] = [
     ],
   },
 ];
+
+export const missions: Mission[] = baseMissions.map((mission) => ({
+  ...mission,
+  campaign: "trig",
+}));
 
 export const totalQuestions = missions.reduce(
   (total, mission) => total + mission.questions.length,

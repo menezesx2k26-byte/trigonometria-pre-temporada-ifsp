@@ -1,7 +1,9 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import LessonVisual from "../src/components/LessonVisual";
+import PolynomialVisual from "../src/components/PolynomialVisual";
 import { missions } from "../src/data/missions";
+import { polynomialMissions } from "../src/data/polynomialMissions";
 
 const rendered = missions.map((mission) => ({
   mission,
@@ -44,5 +46,33 @@ describe("mapas visuais das missões", () => {
     expect(markup).toContain("sen x = m");
     expect(markup).toContain("sen x &gt; m");
     expect(markup).toContain("π−α");
+  });
+});
+
+const renderedPolynomial = polynomialMissions.map((mission) => ({
+  mission,
+  markup: renderToStaticMarkup(<PolynomialVisual mission={mission} />),
+}));
+
+describe("mapas visuais da Forja Polinomial", () => {
+  it.each(renderedPolynomial)(
+    "forja $mission.day renderiza um SVG acessível e íntegro",
+    ({ mission, markup }) => {
+      expect(markup).toContain("<svg");
+      expect(markup).toContain(`poly-title-${mission.day}`);
+      expect(markup).toContain(`poly-description-${mission.day}`);
+      expect(markup).not.toContain("NaN");
+      expect(markup).not.toContain("undefined");
+    },
+  );
+
+  it("gera 14 composições distintas", () => {
+    expect(new Set(renderedPolynomial.map(({ markup }) => markup)).size).toBe(
+      14,
+    );
+  });
+
+  it("fecha com o painel TININDO", () => {
+    expect(renderedPolynomial[13].markup).toContain("TININDO");
   });
 });

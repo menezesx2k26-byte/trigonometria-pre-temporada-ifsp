@@ -48,12 +48,15 @@ export type WorkedExample = {
   result: string;
 };
 
+export type CampaignId = "trig" | "poly";
+
 export type Mission = {
+  campaign: CampaignId;
   day: number;
   slug: string;
   title: string;
   shortTitle: string;
-  phase: "Fundação" | "Órbita" | "Domínio";
+  phase: "Fundação" | "Órbita" | "Domínio" | "Forja" | "Fatoração" | "Raízes";
   duration: string;
   source: string;
   objective: string;
@@ -74,6 +77,7 @@ export type Mission = {
     | "identity"
     | "wave"
     | "transform"
-    | "equation";
+    | "equation"
+    | "polynomial";
   questions: Question[];
 };

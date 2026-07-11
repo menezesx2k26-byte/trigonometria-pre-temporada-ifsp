@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { missions } from "../src/data/missions";
+import { polynomialMissions } from "../src/data/polynomialMissions";
 import { isAnswerComplete, isAnswerCorrect } from "../src/lib/answers";
 
+const allMissions = [...missions, ...polynomialMissions];
+
 describe("motor de respostas fechadas", () => {
-  for (const question of missions.flatMap((mission) => mission.questions)) {
+  for (const question of allMissions.flatMap((mission) => mission.questions)) {
     it(`${question.id} aceita o gabarito e rejeita uma resposta incompleta`, () => {
       if (question.type === "choice") {
         expect(isAnswerCorrect(question, question.correctId)).toBe(true);

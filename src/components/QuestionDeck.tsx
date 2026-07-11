@@ -35,6 +35,7 @@ export default function QuestionDeck({
         .length,
     [checked, mission.questions, previous],
   );
+  const remainingCount = mission.questions.length - answeredCount;
 
   function setAnswer(value: Answer) {
     if (revealed) return;
@@ -50,7 +51,13 @@ export default function QuestionDeck({
 
   function next() {
     if (index < mission.questions.length - 1) setIndex((value) => value + 1);
-    else onFinish();
+    else if (remainingCount === 0) onFinish();
+    else {
+      const firstPending = mission.questions.findIndex(
+        (item) => !checked[item.id] && !previous[item.id],
+      );
+      setIndex(firstPending >= 0 ? firstPending : 0);
+    }
   }
 
   return (
@@ -66,10 +73,17 @@ export default function QuestionDeck({
           {answeredCount}/{mission.questions.length} verificadas
         </span>
       </div>
-      <div className="deck-progress">
+      <div
+        className="deck-progress"
+        role="progressbar"
+        aria-label="Questões verificadas nesta missão"
+        aria-valuemin={0}
+        aria-valuemax={mission.questions.length}
+        aria-valuenow={answeredCount}
+      >
         <i
           style={{
-            width: `${((index + 1) / mission.questions.length) * 100}%`,
+            width: `${(answeredCount / mission.questions.length) * 100}%`,
           }}
         />
       </div>
@@ -90,6 +104,7 @@ export default function QuestionDeck({
                 className={`answer-option ${answer === option.id ? "selected" : ""}`}
                 onClick={() => setAnswer(option.id)}
                 disabled={revealed}
+                aria-pressed={answer === option.id}
               >
                 <span>{option.id.toUpperCase()}</span>
                 {option.label}
@@ -114,6 +129,7 @@ export default function QuestionDeck({
                     )
                   }
                   disabled={revealed}
+                  aria-pressed={selected}
                 >
                   <span>{selected ? "✓" : option.id.toUpperCase()}</span>
                   {option.label}
@@ -192,7 +208,9 @@ export default function QuestionDeck({
             )}
             <button className="primary-action" onClick={next}>
               {index === mission.questions.length - 1
-                ? "Fechar missão"
+                ? remainingCount === 0
+                  ? "Concluir missão"
+                  : `Revisar ${remainingCount} pendente${remainingCount === 1 ? "" : "s"}`
                 : "Próxima questão"}
             </button>
           </div>
@@ -204,7 +222,8 @@ export default function QuestionDeck({
             key={item.id}
             onClick={() => setIndex(itemIndex)}
             className={`${itemIndex === index ? "active" : ""} ${checked[item.id] || previous[item.id] ? "answered" : ""}`}
-            aria-label={`Ir para questão ${itemIndex + 1}`}
+            aria-current={itemIndex === index ? "true" : undefined}
+            aria-label={`Ir para questão ${itemIndex + 1}${checked[item.id] || previous[item.id] ? ", verificada" : ", pendente"}`}
           />
         ))}
       </div>

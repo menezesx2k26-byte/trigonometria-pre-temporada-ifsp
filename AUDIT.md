@@ -1,18 +1,25 @@
 # Auditoria e decisões pedagógicas
 
-## Resultado
+## Resultado atual
 
-O projeto anterior foi reconstruído porque apenas o deploy compilado estava disponível. A nova versão reduz a rota principal a 14 dias e retira Complexos e Polinômios da carga imediata sem apagá-los do mapa do componente.
+A pré-temporada continua organizada em 14 dias, mas agora possui duas trilhas coordenadas:
+
+1. **Órbita Trigonométrica**, campanha principal;
+2. **Forja Polinomial**, side quest diária curta.
+
+A divisão evita dois extremos: estudar apenas Trigonometria e chegar cru em Polinômios, ou tentar comprimir todo o FME 6 em duas semanas e abandonar a campanha por saturação.
 
 ## Fontes usadas como mapa
 
-- FME 3 — Trigonometria, 9ª edição: sequência em espiral do triângulo retângulo à circunferência e às funções.
-- FME 6 — Complexos, Polinômios e Equações, 8ª edição: continuação do componente, fora da rota intensiva.
-- PPC do curso: componente integrado de Trigonometria, Números Complexos e Polinômios.
+- FME 3 — Trigonometria, 9ª edição: sequência do ângulo às equações e inequações trigonométricas.
+- FME 6 — Complexos, Polinômios e Equações, 8ª edição:
+  - Capítulo II, p. 53–97: polinômios, operações, grau, divisão, resto, fator e Briot–Ruffini;
+  - Capítulo III, p. 100–145: equações, decomposição, multiplicidade, Girard e raízes racionais.
+- Complexos, raízes avançadas e capítulos IV–V permanecem no hangar de continuação.
 
-Os PDFs, imagens e textos dos livros não são distribuídos. O app contém explicações, diagramas e questões autorais e apenas aponta capítulos e páginas para consulta.
+Os PDFs, imagens e textos dos livros não são distribuídos. O app contém conteúdo autoral e apenas indica páginas para leitura.
 
-## Rota de 14 dias
+## Campanha principal: Trigonometria
 
 1. Ângulos
 2. Triângulo retângulo
@@ -29,41 +36,67 @@ Os PDFs, imagens e textos dos livros não são distribuídos. O app contém expl
 13. Equações e inequações
 14. Boss integrado
 
+## Side quests: Forja Polinomial
+
+1. Anatomia e valor numérico
+2. Identidade e coeficientes
+3. Soma e subtração
+4. Produto e grau
+5. Divisão euclidiana
+6. Teoremas do resto e do fator
+7. Briot–Ruffini
+8. Equações e produto nulo
+9. Decomposição em fatores
+10. Multiplicidade
+11. Relações de Girard
+12. Raízes racionais
+13. Protocolo integrado de caça
+14. Boss Polinomial
+
 ## Banco de questões
 
-- 112 questões fechadas;
-- 92 de escolha única;
-- 8 de múltipla seleção;
-- 12 de associação;
+- 168 questões fechadas;
+- 112 de Trigonometria;
+- 56 de Polinômios;
+- escolha única, múltipla seleção e associação;
 - zero `short-answer`;
 - zero `numeric-input`;
-- feedback com explicação e armadilha por meio do botão “Por quê?”.
+- explicação e armadilha disponíveis após a conferência.
 
-## Mudanças de experiência
+## Integridade do progresso
 
-- Sem bloqueio artificial entre missões.
-- Progresso salvo apenas no navegador.
-- 75% marca domínio, mas nota menor não prende o estudante.
-- Erros ficam associados à missão e reaparecem primeiro na próxima prática.
-- 14 mapas SVG autorais e responsivos, um por missão, redesenhados a partir das relações matemáticas indicadas no FME 3 sem copiar as figuras do livro.
-- Modo escuro adulto, alto contraste e animação desativada quando o sistema pede movimento reduzido.
-- Layouts específicos para desktop, tablet e celular.
+- Uma missão só é concluída quando todas as suas questões foram verificadas.
+- O domínio de 75% representa a pontuação atual e pode ser removido após uma tentativa posterior inferior.
+- Campanhas possuem progresso e recomendação independentes.
+- Trocar de missão remonta o painel e elimina vazamento de estado.
+- Leitura e escrita do `localStorage` são defensivas e dados inválidos são filtrados.
+- Trigonometria e Forja compartilham apenas o banco de resultados, cujos IDs são únicos.
+
+## Experiência
+
+- 28 mapas SVG autorais e responsivos;
+- 28 mnemônicos;
+- plano diário com modos sobrevivência, combo e Boss;
+- XP baseado em conclusão e domínio, sem streak punitiva;
+- erros capturados e reabertos por missão;
+- navegação livre entre dias;
+- foco restaurado ao fechar o painel;
+- abas com papéis ARIA e navegação por setas;
+- alvos de navegação das questões maiores que 24 px;
+- animações desativadas quando o sistema pede movimento reduzido.
 
 ## Validação
 
-- 151 testes automatizados, incluindo renderização, acessibilidade e sentinelas dos mapas visuais.
-- Todas as 112 questões passam pelo motor de correção: o gabarito é aceito e respostas incompletas/distratores são rejeitados.
-- IDs, opções e associações são validados contra duplicação e referências inexistentes.
-- Sentinelas matemáticas cobrem os principais resultados de cada fase.
-- `astro check`: zero erro, zero aviso.
-- `astro build`: build estático concluído.
+- 244 testes automatizados na primeira integração da Forja;
+- sentinelas matemáticas independentes para os 14 dias polinomiais;
+- renderização e integridade dos 28 SVGs;
+- validação estrutural de todos os gabaritos;
+- `astro check`: zero erro, zero aviso;
+- `astro build`: build estático concluído;
+- build limpo gera somente cinco arquivos;
+- inspeção visual em desktop e celular sem overflow horizontal ou erro de console.
 
-## Deploy
+## Publicação
 
-O projeto está configurado para Cloudflare Pages em `wrangler.jsonc`:
+O projeto Cloudflare Pages é `trigonometria-orbita-14`. A publicação deve sempre usar o `dist` produzido pelo comando `npm run build`, que agora remove a saída anterior antes de compilar.
 
-- comando de build: `npm run build`;
-- diretório de saída: `dist`;
-- nome de publicação: `trigonometria-orbita-14`.
-
-O deploy não foi executado porque a sessão não recebeu autenticação da conta Cloudflare.

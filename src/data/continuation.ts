@@ -10,18 +10,23 @@ export const continuationTracks = [
     ],
   },
   {
-    title: "Polinômios",
-    source: "FME 6 — Capítulo II, p. 53–99",
+    title: "Raízes avançadas",
+    source: "FME 6 — Capítulo III, p. 128–139",
     items: [
-      "operações",
-      "grau",
-      "divisão euclidiana",
-      "teoremas do resto e do fator",
+      "raízes complexas conjugadas",
+      "localização de raízes reais",
+      "Teorema de Bolzano",
+      "interpretação geométrica",
     ],
   },
   {
-    title: "Equações polinomiais",
-    source: "FME 6 — Capítulo III, p. 100–147",
-    items: ["raízes", "multiplicidade", "Girard", "raízes racionais"],
+    title: "Álgebra avançada",
+    source: "FME 6 — Capítulos IV–V, p. 148–196",
+    items: [
+      "transformações de equações",
+      "equações recíprocas",
+      "raízes múltiplas",
+      "raízes comuns e MDC",
+    ],
   },
 ];
