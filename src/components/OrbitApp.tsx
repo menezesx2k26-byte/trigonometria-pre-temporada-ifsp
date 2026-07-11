@@ -175,7 +175,7 @@ function MissionPanel({
             </article>
           </div>
           <aside className="lesson-aside">
-            <LessonVisual type={mission.visual} />
+            <LessonVisual mission={mission} />
             <div className="mnemonic-card">
               <span>{mission.mnemonic.label}</span>
               <blockquote>{mission.mnemonic.chant}</blockquote>

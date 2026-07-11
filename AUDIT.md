@@ -45,13 +45,13 @@ Os PDFs, imagens e textos dos livros não são distribuídos. O app contém expl
 - Progresso salvo apenas no navegador.
 - 75% marca domínio, mas nota menor não prende o estudante.
 - Erros ficam associados à missão e reaparecem primeiro na próxima prática.
-- Diagramas SVG autorais e responsivos.
+- 14 mapas SVG autorais e responsivos, um por missão, redesenhados a partir das relações matemáticas indicadas no FME 3 sem copiar as figuras do livro.
 - Modo escuro adulto, alto contraste e animação desativada quando o sistema pede movimento reduzido.
 - Layouts específicos para desktop, tablet e celular.
 
 ## Validação
 
-- 133 testes automatizados.
+- 151 testes automatizados, incluindo renderização, acessibilidade e sentinelas dos mapas visuais.
 - Todas as 112 questões passam pelo motor de correção: o gabarito é aceito e respostas incompletas/distratores são rejeitados.
 - IDs, opções e associações são validados contra duplicação e referências inexistentes.
 - Sentinelas matemáticas cobrem os principais resultados de cada fase.

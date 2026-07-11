@@ -678,28 +678,65 @@ footer {
 .lesson-visual {
   display: block;
   width: 100%;
-  min-height: 235px;
+  height: auto;
+  aspect-ratio: 440 / 286;
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: radial-gradient(
-    circle at center,
-    rgba(66, 221, 255, 0.08),
-    rgba(0, 0, 0, 0.1)
-  );
+  background: #081523;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 44px rgba(0, 0, 0, 0.16);
+  shape-rendering: geometricPrecision;
 }
 .lesson-visual text {
   fill: #dbe7f4;
   font-family: Inter, system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
 }
-.lesson-visual .visual-center {
-  font-size: 15px;
-  fill: #fff;
+.lesson-visual .visual-kicker {
+  fill: var(--cyan);
+  font-size: 9px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
 }
-.lesson-visual .visual-small {
+.lesson-visual .visual-title {
+  fill: #fff;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 760;
+  letter-spacing: -0.015em;
+}
+.lesson-visual .visual-formula {
+  fill: #f7fbff;
+  font-size: 13px;
+  font-weight: 900;
+}
+.lesson-visual .visual-label {
+  fill: #dbe7f4;
   font-size: 10px;
+  font-weight: 850;
+}
+.lesson-visual .visual-note {
+  fill: #e8f3ff;
+  font-size: 9px;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+}
+.lesson-visual .visual-axis {
   fill: #9eb1c8;
+  font-size: 9px;
+  font-weight: 750;
+}
+.lesson-visual .visual-muted {
+  fill: #9eb1c8;
+  font-size: 8px;
+  font-weight: 700;
+}
+.lesson-visual .visual-chip-dark {
+  fill: #07111f;
+  font-size: 11px;
+  font-weight: 950;
 }
 .mnemonic-card {
   padding: 1.2rem;
@@ -1157,7 +1194,7 @@ footer button {
     flex: 1;
   }
   .lesson-visual {
-    min-height: 200px;
+    aspect-ratio: 440 / 286;
   }
   .question-card {
     min-height: 0;
