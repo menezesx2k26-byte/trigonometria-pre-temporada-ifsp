@@ -619,11 +619,11 @@ const baseMissions: Omit<Mission, "campaign">[] = [
       ),
       choice(
         "d5q2",
-        "150° em radianos é:",
-        ["π/6", "2π/3", "5π/6", "3π/2"],
+        "210° em radianos é:",
+        ["π/6", "2π/3", "7π/6", "3π/2"],
         2,
-        "150π/180 = 5π/6.",
-        "Simplificar 150/180 incorretamente.",
+        "210π/180 = 7π/6.",
+        "Simplificar 210/180 incorretamente.",
       ),
       choice(
         "d5q3",
@@ -1020,13 +1020,13 @@ const baseMissions: Omit<Mission, "campaign">[] = [
       ),
       match(
         "d8q7",
-        "Associe o quadrante à fórmula de referência para 0°<α<90°.",
+        "Associe cada quadrante à expressão do ângulo de referência α, com 0°<α<90°.",
         [
-          ["QII", "180°-θ"],
-          ["QIII", "θ-180°"],
-          ["QIV", "360°-θ"],
+          ["QII", "α=180°-θ"],
+          ["QIII", "α=θ-180°"],
+          ["QIV", "α=360°-θ"],
         ],
-        ["180°-θ", "θ-180°", "360°-θ"],
+        ["α=180°-θ", "α=θ-180°", "α=360°-θ"],
         "Cada fórmula mede a distância até o eixo x mais próximo.",
         "Usar a mesma subtração em todos os quadrantes.",
       ),
@@ -1055,7 +1055,7 @@ const baseMissions: Omit<Mission, "campaign">[] = [
       label: "Partida das ondas",
       chant: "Seno sai do zero; cosseno começa no topo. Os dois voltam em 2π.",
       meaning:
-        "Em x=0, sen0=0 e cos0=1; ambas as funções repetem o desenho após uma volta.",
+        "Em x=0, sen(0)=0 e cos(0)=1; ambas as funções repetem o desenho após uma volta.",
     },
     visual: "wave",
     blocks: [
@@ -1177,8 +1177,8 @@ const baseMissions: Omit<Mission, "campaign">[] = [
     blocks: [
       {
         eyebrow: "Tangente",
-        title: "Período π e buracos",
-        body: "tg x repete em π e não existe em π/2+kπ, onde cos x=0.",
+        title: "Período π e assíntotas verticais",
+        body: "tg x repete em π e não existe em π/2+kπ, onde cos x=0. Nesses pontos, o gráfico possui assíntotas verticais.",
       },
       {
         eyebrow: "Escala",
@@ -1312,7 +1312,7 @@ const baseMissions: Omit<Mission, "campaign">[] = [
         eyebrow: "Dobro",
         title: "Faça b=a",
         body: "As fórmulas de arco duplo saem das fórmulas de soma.",
-        formula: "sen2a=2sen a cos a",
+        formula: "sen(2a)=2 sen a cos a",
       },
     ],
     example: {
@@ -1378,15 +1378,15 @@ const baseMissions: Omit<Mission, "campaign">[] = [
         ["cos²a-sen²a", "2cos²a-1", "1-2sen²a", "2sen a cos a"],
         [0, 1, 2],
         "As três primeiras vêm da fórmula de soma e da identidade fundamental.",
-        "Incluir sen2a=2sen a cos a.",
+        "Incluir sen(2a)=2 sen a cos a.",
       ),
       choice(
         "d11q6",
-        "sen 75° vale:",
+        "cos 75° vale:",
         ["(√6-√2)/4", "(√6+√2)/4", "√3/2", "1/2"],
-        1,
-        "Use 75°=45°+30° na fórmula da soma do seno.",
-        "Trocar soma por diferença.",
+        0,
+        "Use 75°=45°+30° e cos(a+b)=cos a cos b-sen a sen b.",
+        "Manter o sinal positivo como na fórmula do seno.",
       ),
       choice(
         "d11q7",
@@ -1594,11 +1594,11 @@ const baseMissions: Omit<Mission, "campaign">[] = [
     questions: [
       choice(
         "d13q1",
-        "sen x=1/2 em [0,2π] tem soluções:",
-        ["π/6 apenas", "π/6 e 5π/6", "π/6 e 7π/6", "5π/6 e 11π/6"],
+        "sen x=√3/2 em [0,2π] tem soluções:",
+        ["π/3 apenas", "π/3 e 2π/3", "π/3 e 4π/3", "2π/3 e 5π/3"],
         1,
-        "Seno é positivo nos quadrantes I e II.",
-        "Dar apenas a solução principal.",
+        "A referência é π/3 e o seno é positivo nos quadrantes I e II.",
+        "Dar apenas a solução principal ou usar quadrantes de seno negativo.",
       ),
       choice(
         "d13q2",
@@ -1630,7 +1630,7 @@ const baseMissions: Omit<Mission, "campaign">[] = [
       ),
       choice(
         "d13q5",
-        "Em uma volta, sen x>0 em:",
+        "Em [0,2π], sen x>0 em:",
         ["(0,π)", "(π,2π)", "(π/2,3π/2)", "todo [0,2π]"],
         0,
         "A coordenada y é positiva na metade superior do ciclo; os extremos têm seno zero.",
@@ -1638,7 +1638,7 @@ const baseMissions: Omit<Mission, "campaign">[] = [
       ),
       choice(
         "d13q6",
-        "Em uma volta, cos x<0 em:",
+        "Em [0,2π], cos x<0 em:",
         ["(0,π)", "(π/2,3π/2)", "(π,2π)", "(0,π/2)"],
         1,
         "A coordenada x é negativa na metade esquerda do ciclo.",
@@ -1760,11 +1760,11 @@ const baseMissions: Omit<Mission, "campaign">[] = [
       ),
       choice(
         "d14q6",
-        "(1-sen²x)/cos x, com cos x≠0, simplifica para:",
-        ["sen x", "cos x", "tg x", "1"],
+        "Se sen x=3/5 e x está no QII, cos x vale:",
+        ["4/5", "-4/5", "3/4", "-3/4"],
         1,
-        "1-sen²x=cos²x; cos²x/cos x=cos x.",
-        "Cancelar dentro de uma soma antes de substituir.",
+        "Da identidade, cos²x=1-9/25=16/25. No QII, o cosseno é negativo: cos x=-4/5.",
+        "Tirar a raiz e esquecer que o quadrante decide o sinal.",
       ),
       choice(
         "d14q7",

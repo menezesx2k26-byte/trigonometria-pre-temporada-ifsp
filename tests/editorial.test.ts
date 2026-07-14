@@ -1,6 +1,4 @@
-import { writeFileSync } from "node:fs";
-
-const editorialTest = String.raw`import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import { missions } from "../src/data/missions";
 import { polynomialMissions } from "../src/data/polynomialMissions";
 
@@ -35,6 +33,3 @@ describe("auditoria editorial", () => {
     );
   });
 });
-`;
-
-writeFileSync("tests/editorial.test.ts", editorialTest);

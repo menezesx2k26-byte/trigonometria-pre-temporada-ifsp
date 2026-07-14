@@ -339,7 +339,7 @@ function DailyPlan({
         </div>
         <p>
           O combo cabe em 75–100 minutos na maioria dos dias. Nos quatro finais,
-          divida os 105–125 minutos em dois rounds. Em dia quebrado, faça só a
+          divida os 100–125 minutos em dois rounds. Em dia quebrado, faça só a
           Forja e preserve o movimento.
         </p>
       </div>
@@ -593,7 +593,7 @@ export default function OrbitApp() {
               <span>01</span>
               <strong>Órbita Trigonométrica</strong>
               <small>
-                {progress.completedDays.length}/14 concluídas · 55–70 min
+                {progress.completedDays.length}/14 concluídas · 55–90 min
               </small>
             </button>
             <button
@@ -606,7 +606,7 @@ export default function OrbitApp() {
               <span>02</span>
               <strong>Forja Polinomial</strong>
               <small>
-                {progress.polyCompletedDays.length}/14 concluídas · 20–30 min
+                {progress.polyCompletedDays.length}/14 concluídas · 20–35 min
               </small>
             </button>
           </div>

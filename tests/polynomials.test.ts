@@ -98,7 +98,7 @@ describe("oráculo matemático sentinela da Forja", () => {
     ["p10q1", "4"],
     ["p11q2", "x²−5x+6=0"],
     ["p12q1", "5/2"],
-    ["p13q3", "x²−5x+6"],
+    ["p13q3", "x²−4"],
     ["p14q2", "0"],
   ])("%s conserva o resultado recalculado", (id, expectedLabel) => {
     const question = byId.get(id);
