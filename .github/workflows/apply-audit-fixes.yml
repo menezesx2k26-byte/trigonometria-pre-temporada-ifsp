@@ -29,7 +29,9 @@ jobs:
           cache: npm
 
       - name: Apply fixes
-        run: node scripts/apply-audit-fixes.mjs
+        run: |
+          node scripts/apply-audit-fixes.mjs
+          node scripts/fix-editorial-test.mjs
 
       - name: Install dependencies
         run: npm ci
@@ -55,6 +57,7 @@ jobs:
         if: steps.build.outcome == 'success'
         run: |
           rm scripts/apply-audit-fixes.mjs
+          rm scripts/fix-editorial-test.mjs
           rm .github/workflows/apply-audit-fixes.yml
           rm -f build.log
           git config user.name "github-actions[bot]"
