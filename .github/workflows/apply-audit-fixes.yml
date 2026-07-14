@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - fix/auditoria-pedagogica
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -16,6 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: fix/auditoria-pedagogica
           fetch-depth: 0
 
       - name: Set up Node
@@ -45,4 +49,4 @@ jobs:
           git add -A
           git diff --cached --check
           git commit -m "Improve feedback and curriculum accuracy"
-          git push
+          git push origin HEAD:fix/auditoria-pedagogica
