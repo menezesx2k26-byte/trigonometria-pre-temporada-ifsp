@@ -980,7 +980,7 @@ function TangentVisual({ mission }: { mission: Mission }) {
         x={25}
         y={78}
         width={132}
-        text="assíntota = buraco"
+        text="assíntota vertical"
         stroke={color.rose}
         fill="rgba(255,142,161,.08)"
       />

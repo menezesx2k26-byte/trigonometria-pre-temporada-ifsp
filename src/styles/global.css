@@ -1521,3 +1521,60 @@ footer button {
     transition: none !important;
   }
 }
+
+
+/* Feedback pedagógico pós-auditoria */
+.answer-option.is-correct,
+.answer-option.is-missed {
+  border-color: rgba(100, 232, 162, 0.72);
+  background: rgba(100, 232, 162, 0.11);
+}
+.answer-option.is-correct span,
+.answer-option.is-missed span {
+  color: #062216;
+  background: var(--green);
+}
+.answer-option.is-missed {
+  box-shadow: inset 0 0 0 1px rgba(100, 232, 162, 0.2);
+}
+.answer-option.is-wrong {
+  border-color: rgba(255, 142, 161, 0.72);
+  background: rgba(255, 142, 161, 0.11);
+}
+.answer-option.is-wrong span {
+  color: #2a0710;
+  background: var(--rose);
+}
+.match-list label.is-correct {
+  border-color: rgba(100, 232, 162, 0.58);
+  background: rgba(100, 232, 162, 0.06);
+}
+.match-list label.is-wrong {
+  border-color: rgba(255, 142, 161, 0.58);
+  background: rgba(255, 142, 161, 0.06);
+}
+.match-correction {
+  grid-column: 2;
+  color: var(--green);
+  font-weight: 850;
+}
+.feedback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.retry-action {
+  min-height: 50px;
+}
+@media (max-width: 620px) {
+  .feedback-actions {
+    display: grid;
+  }
+  .feedback-actions > button {
+    width: 100%;
+  }
+  .match-correction {
+    grid-column: 1;
+  }
+}
