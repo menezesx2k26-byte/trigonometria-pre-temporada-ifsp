@@ -1,0 +1,20 @@
+
+> trigonometria-orbita-14@1.0.0 build
+> npm run clean && ASTRO_TELEMETRY_DISABLED=1 astro check && ASTRO_TELEMETRY_DISABLED=1 astro build
+
+
+> trigonometria-orbita-14@1.0.0 clean
+> node -e "require('node:fs').rmSync('dist',{recursive:true,force:true})"
+
+[2m22:49:11[22m [34m[types][39m Generated [2m155ms[22m
+[2m22:49:11[22m [34m[check][39m Getting diagnostics for Astro files in /home/runner/work/trigonometria-pre-temporada-ifsp/trigonometria-pre-temporada-ifsp...
+[96mtests/editorial.test.ts[0m:[93m1[0m:[93m30[0m - [91merror[0m[90m ts(2307): [0mCannot find module 'node:fs' or its corresponding type declarations.
+
+[7m1[0m import { readFileSync } from "node:fs";
+[7m [0m [91m                             ~~~~~~~~~[0m
+
+Result (22 files): 
+- 1 error
+- 0 warnings
+- 0 hints
+
