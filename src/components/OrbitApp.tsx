@@ -405,6 +405,7 @@ function DailyPlan({
 export default function OrbitApp() {
   const [progress, setProgress] = useState<OrbitProgress>(freshProgress());
   const [hydrated, setHydrated] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [routeCampaign, setRouteCampaign] = useState<CampaignId>("trig");
   const [openMission, setOpenMission] = useState<OpenMission | null>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
@@ -426,8 +427,15 @@ export default function OrbitApp() {
 
   useEffect(() => {
     setProgress(loadProgress());
+    const savedTheme = window.localStorage.getItem("orbit-theme");
+    setTheme(savedTheme === "light" ? "light" : "dark");
     setHydrated(true);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("orbit-theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     if (hydrated) saveProgress(progress);
@@ -551,12 +559,28 @@ export default function OrbitApp() {
           <a href="#arsenal">Arsenal</a>
           <a href="#hangar">Depois</a>
         </nav>
-        <div
-          className="top-status"
-          aria-label={completedTotal + " de 28 missões concluídas"}
-        >
-          <span>{completedTotal}/28</span>
-          <i style={{ width: (completedTotal / 28) * 100 + "%" }} />
+        <div className="top-actions">
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-label={
+              theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"
+            }
+            aria-pressed={theme === "light"}
+            onClick={() =>
+              setTheme((current) => (current === "dark" ? "light" : "dark"))
+            }
+          >
+            <span aria-hidden="true">{theme === "dark" ? "☀" : "☾"}</span>
+            <b>{theme === "dark" ? "Claro" : "Escuro"}</b>
+          </button>
+          <div
+            className="top-status"
+            aria-label={completedTotal + " de 28 missões concluídas"}
+          >
+            <span>{completedTotal}/28</span>
+            <i style={{ width: (completedTotal / 28) * 100 + "%" }} />
+          </div>
         </div>
       </header>
       <main>
